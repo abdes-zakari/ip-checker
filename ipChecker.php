@@ -1,4 +1,5 @@
 <?php
+//https://joshtronic.com/2013/09/02/how-to-use-colors-in-command-line-output/
 // $ip = "192.174.12.14";
 // $ip = "10.255.255.255";
 
