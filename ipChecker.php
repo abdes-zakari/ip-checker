@@ -1,26 +1,28 @@
 <?php
-//https://joshtronic.com/2013/09/02/how-to-use-colors-in-command-line-output/
 // $ip = "192.174.12.14";
 // $ip = "10.255.255.255";
 
 function ipChecker(){
-    $ip = readline("Bitte IP-adresse eingeben: ");
+    // $ip = readline("Bitte IP-adresse eingeben: ");
+    $ip="131.107.255.80";
     $ips = explode(".",$ip);
 
     if( sizeof($ips)!=4){
-        // echo "IP-adresse ist nicht gültig \n";
         echo "\e[0;31mIP-adresse ist nicht gültig\e[0m\n";
         // ipChecker();
         exit();
     }
     $bins = [];
     foreach($ips as $ip){
+        if($ip>255) {
+            echo "\e[0;31mNByte kann\e[0m\n"; 
+            exit();
+        }
+        
         $bins[] = str_pad(decbin($ip), 8, 0, STR_PAD_LEFT);
     }
-
     $result = [
-                "klasse"=>'',
-                "typ" =>'',
+                "klasse"=>''
             ];
 
     if($bins[0][0]==0){
